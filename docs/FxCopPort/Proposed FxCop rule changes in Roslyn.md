@@ -25,6 +25,7 @@ But the [MSDN documentation](https://msdn.microsoft.com/en-us/library/ms182162.a
 
 ... and the FxCop implementation conforms to the documentation by allowing nested enums.
 
+
 @michaelcfanning explains that this exemption was made for the sake of the `Environment.SpecialFolders` enumeration.
 
 At present, the Roslyn analyzer for CA1034 follows the FxCop implementation. Do we want to change it (and the documentation) to prohibit nested public enums?
@@ -74,3 +75,5 @@ Why shouldn't all publicly visible methods follow this rule?
 We decided not to port this because of a high false positive rate, and our opinion that it was not of high value. We have had the following pushback on this decision:
 
 > @stilgarSCA: :-1: on this decision. Despite the fact that this causes a lot of false positives, I think it's worth keeping the rule for the correctly identified issues. End users always have the option of disabling rules for which they find no value.
+
+> Several others have also argued for reversing this decision, as can be seen in the comments of [issue #695](https://github.com/dotnet/roslyn-analyzers/issues/695) and [issue #291](https://github.com/dotnet/roslyn-analyzers/issues/291).
